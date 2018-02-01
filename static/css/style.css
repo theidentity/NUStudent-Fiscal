@@ -1,0 +1,11 @@
+
+.amount{
+	color : blue;
+	font-style: bolder;
+}
+
+.heading{
+	font-style: italic;
+	font-weight: bolder;
+	font-size: 55px;
+}
