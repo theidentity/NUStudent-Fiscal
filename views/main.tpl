@@ -19,8 +19,8 @@
         <h5>Intelligent Rule Based Budget Recommender System</h5>
     </section>
     <section class="container bg-light text-primary">
-        <p class="text-center">Please answer our questions to estimate your budget</p>
-        <form>
+        <p class="text-center">Hi {{user}}, please answer our questions to estimate your budget</p>
+        <form method="post" action="/">
             <div class="row justify-content-center">
                 <div class="col-6">
                     <div class="form-group">

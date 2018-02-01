@@ -3,7 +3,8 @@
 
 import os
 from bottle import route, run, static_file, template, view
-
+from bottle import get, post, request
+import clips_connector
 
 # -------------------STATIC START----------------------------
 @route('/css/<filename>')
@@ -26,7 +27,21 @@ def hello():
 	return dict(title='Questions to User',user='Balu',amount=100)
 # -------------------VIEW END------------------------------
 
+# -------------------DATA START----------------------------
+@route('/',method="POST")
+def recFacts():
+	ans1 =request.forms.get('q1')
+	ans2 =request.forms.get('q2')
+	facts = {'ans1':ans1,'ans2':ans2}
+	clips_connector.receiveFacts(facts)
+	return "This is our recommendation"
 
+# -------------------DATA END------------------------------
+
+
+
+
+# -------------------MAIN START----------------------------
 if __name__ == "__main__":
 	port = int(os.environ.get("PORT", 5000))
 	run(
@@ -35,3 +50,4 @@ if __name__ == "__main__":
 	debug=True,
 	reloader = True
 	)
+# -------------------MAIN END----------------------------
