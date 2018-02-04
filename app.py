@@ -32,18 +32,30 @@ def hello():
 def recFacts():
 	ans1 =request.forms.get('q1')
 	ans2 =request.forms.get('q2')
-	facts = {'ans1':ans1,'ans2':ans2}
+	ans3 =request.forms.get('q3')
+	facts = {'ans1':ans1,
+	'ans2':ans2,
+	'ans3':ans3
+	}
 	clips_connector.receiveFacts(facts)
-	return "This is our recommendation"
+	# return "This is our recommendation"
+	return giveRecc()
 
 # -------------------DATA END------------------------------
 
+# -------------------REC START----------------------------
+@route("/suggest")
+@view("suggestions")
+def giveRecc():
+	amount = clips_connector.getEstimateAmount()
+	return dict(title='Recommendations to User',user='Balu',amount=amount)
 
+# -------------------REC END------------------------------
 
 
 # -------------------MAIN START----------------------------
 if __name__ == "__main__":
-	port = int(os.environ.get("PORT", 5000))
+	port = int(os.environ.get("PORT", 5001))
 	run(
 	host='localhost',
 	port=port,

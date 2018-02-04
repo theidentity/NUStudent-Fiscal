@@ -25,20 +25,19 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="q1">Qn 1</label>
-                        <input type="text" class="form-control" id="q1" placeholder="Question">
+                        <input type="text" class="form-control" id="q1" placeholder="Question" name='q1'>
                     </div>
                     <div class="form-group">
                         <label for="q2">Qn 2</label>
-                        <input type="text" class="form-control" id="q2" placeholder="Question">
+                        <input type="text" class="form-control" id="q2" placeholder="Question" name='q2'>
                     </div>
                     <div class="form-group">
                         <label for="inputState">Drop Down</label>
-                        <select id="inputState" class="form-control">
+                        <select id="inputState" class="form-control" name='q3'>
                             <option selected>Choose...</option>
-                            <option>Option</option>
-                            <option>Option</option>
-                            <option>Option</option>
-                            <option>Option</option>
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Details</button>
