@@ -30,15 +30,10 @@ def hello():
 # -------------------DATA START----------------------------
 @route('/',method="POST")
 def recFacts():
-	ans1 =request.forms.get('q1')
-	ans2 =request.forms.get('q2')
-	ans3 =request.forms.get('q3')
-	facts = {'ans1':ans1,
-	'ans2':ans2,
-	'ans3':ans3
-	}
+	facts = {}
+	for name in request.forms:
+		facts[name] = request.forms.get(name)
 	clips_connector.receiveFacts(facts)
-	# return "This is our recommendation"
 	return giveRecc()
 
 # -------------------DATA END------------------------------

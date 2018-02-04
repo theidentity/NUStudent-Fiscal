@@ -1,7 +1,7 @@
 
 def receiveFacts(facts):
 	processFacts(facts)
-	print (facts)
+	print ("proceesed facts = ",facts)
 
 def processFacts(facts):
 	print ("facts processed")

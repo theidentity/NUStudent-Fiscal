@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <!-- 	<h1>Hello {{user}}</h1>
-	<div class="amount">
-		<p>The amount you have to pay is {{amount}}</p>
-	</div> -->
+    <!--    <h1>Hello {{user}}</h1>
+    <div class="amount">
+        <p>The amount you have to pay is {{amount}}</p>
+    </div> -->
     <section class="jumbotron text-center bg-info text-white">
         <h1 class="heading">Pocket-Me</h1>
         <h5>Intelligent Rule Based Budget Recommender System</h5>
@@ -40,6 +40,13 @@
                             <option>Option C</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="q4">Budget to Convenience</label>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="3" class="slider" id="q4" name='q4'>
+                            <h2 id="disp"></h2>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit Details</button>
                 </div>
             </div>
@@ -49,6 +56,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery-3.2.1.slim.min.js"></script>
     <script src="/js/popper.min.js"></script>
+    <script src="/js/slider.js"></script>
 </body>
 
 </html>
