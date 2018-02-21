@@ -8,3 +8,7 @@ def processFacts(facts):
 
 def getEstimateAmount():
 	return 950
+
+def getQuestion():
+	question = "Answer yes or no"
+	return question

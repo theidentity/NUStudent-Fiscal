@@ -24,7 +24,8 @@ def js_static(filename):
 @route("/")
 @view("main")
 def hello():
-	return dict(title='Questions to User',user='Balu',amount=100)
+	question = clips_connector.getQuestion()
+	return dict(title='Questions to User',user='Balu',amount=100,question=question)
 # -------------------VIEW END------------------------------
 
 # -------------------DATA START----------------------------
@@ -32,6 +33,7 @@ def hello():
 def recFacts():
 	facts = {}
 	for name in request.forms:
+		print(name)
 		facts[name] = request.forms.get(name)
 	clips_connector.receiveFacts(facts)
 	return giveRecc()
@@ -50,7 +52,7 @@ def giveRecc():
 
 # -------------------MAIN START----------------------------
 if __name__ == "__main__":
-	port = int(os.environ.get("PORT", 5001))
+	port = int(os.environ.get("PORT", 5002))
 	run(
 	host='localhost',
 	port=port,
