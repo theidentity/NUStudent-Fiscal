@@ -22,7 +22,7 @@ def js_static(filename):
 clips_process = clips_terminal.start()
 
 @route("/")
-@view("web_connect")
+@view("questions")
 def hello():
 	while True:
 		isQn,content = clips_terminal.getContent(clips_process)
