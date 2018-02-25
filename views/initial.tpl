@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{title}}</title>
+    <title>Questions to User</title>
     <!-- Styles -->
     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -23,10 +23,13 @@
                     <h3>{{question}}</h3>
                     <div>
                         <label class="radio-inline">
-                            <input type="radio" name="q1" value="yes">YES
+                            <input type="radio" name="ques" value="{{opt1}}">{{opt1}}
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="q1" value="no">NO
+                            <input type="radio" name="ques" value="{{opt2}}">{{opt2}}
+                        </label>
+                        <label class="radio-inline {{"hide" if opt3 is None else ""}}">
+                            <input type="radio" name="ques" value="{{opt3 if opt3 is not None else ""}}">{{opt3 if opt3 is not None else ""}}
                         </label>
                     </div>
                     <div>

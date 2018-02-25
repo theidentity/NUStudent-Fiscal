@@ -4,9 +4,8 @@
 import os
 from bottle import route, run, static_file, template, view
 from bottle import get, post, request
-import clips_connector
+import clips_terminal
 
-# -------------------STATIC START----------------------------
 @route('/css/<filename>')
 def img_static(filename):
 	return static_file(filename, root='./static/css')
@@ -18,37 +17,38 @@ def img_static(filename):
 @route('/js/<filename>')
 def js_static(filename):
 	return static_file(filename, root='./static/js')
-# -------------------STATIC END----------------------------
 
-# -------------------VIEW START----------------------------
+
+clips_process = clips_terminal.start()
+
 @route("/")
-@view("main")
+@view("web_connect")
 def hello():
-	question = clips_connector.getQuestion()
-	return dict(title='Questions to User',user='Balu',amount=100,question=question)
-# -------------------VIEW END------------------------------
+	while True:
+		isQn,content = clips_terminal.getContent(clips_process)
+		if isQn:
+			if '(yes/no)' in content:
+				return dict(title='Questions to User',user = 'Balu',question=content, opt1="yes", opt2="no", opt3=None)
+			elif '(1/2)' in content:
+				return dict(title='Questions to User',user = 'Balu',question=content, opt1="1", opt2="2", opt3=None)
+			elif '(1/2/3)' in content:
+				return dict(title='Questions to User',user = 'Balu',question=content, opt1="1", opt2="2",opt3="3")
+		else:
+			clips_terminal.giveSuggestion(clips_process,content)
+			return suggest(content)
 
-# -------------------DATA START----------------------------
 @route('/',method="POST")
 def recFacts():
-	facts = {}
-	for name in request.forms:
-		print(name)
-		facts[name] = request.forms.get(name)
-	clips_connector.receiveFacts(facts)
-	return giveRecc()
+	answer =  request.forms.get('ques')
+	clips_terminal.giveAnswer(clips_process,answer)
+	return hello()
 
-# -------------------DATA END------------------------------
-
-# -------------------REC START----------------------------
-@route("/suggest")
-@view("suggestions")
-def giveRecc():
-	amount = clips_connector.getEstimateAmount()
-	return dict(title='Recommendations to User',user='Balu',amount=amount)
-
-# -------------------REC END------------------------------
-
+@route("/estimate")
+@view("estimate")
+def suggest(suggestion):
+	clips_process.kill()
+	print 'process killed'
+	return dict(content=suggestion,user = 'Balu')
 
 # -------------------MAIN START----------------------------
 if __name__ == "__main__":

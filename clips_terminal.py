@@ -27,7 +27,6 @@ def giveAnswer(clips_process,answer):
 
 def giveSuggestion(clips_process,suggestion):
 	print suggestion
-	clips_process.kill()
 
 def terminal():
 	clips_process = start()
@@ -39,5 +38,9 @@ def terminal():
 			giveAnswer(clips_process,answer)
 		else:
 			giveSuggestion(clips_process,content)
+			clips_process.kill()
+			print 'process killed'
 			return
+
+
 # terminal()

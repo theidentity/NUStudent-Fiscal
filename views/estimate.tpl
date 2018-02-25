@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{title}}</title>
+    <title>Budget Estimate</title>
     <!-- Styles -->
     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -16,12 +16,7 @@
     </section>
     <section class="container bg-light">
         <h5 class="text-center text-primary">Hi {{user}}, based on your preferences, these are the recommendations we have are</h5>
-        <ul>
-        	<li>Recommendation 1</li>
-        	<li>Recommendation 2</li>
-        	<li>Recommendation 3</li>
-        </ul>
-        <h2>The estimated budget amount is <span class='amt'>{{amount}}</span> SGD</h2>
+        <h3>{{content}}</h3>
         
     </section>
     <script src="/js/bootstrap.min.js"></script>
