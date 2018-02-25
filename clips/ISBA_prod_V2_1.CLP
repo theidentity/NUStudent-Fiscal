@@ -1,5 +1,5 @@
 ;;;=======================================================
-;;;	Student Budget Recommendor System
+;;;	Student Budget Recommender System
 ;;;	
 ;;;	This expert system decides a housing solution for a student based on
 ;;;	the student's preferences and also estimates the monthly budget
@@ -218,7 +218,7 @@
 	=>
 	(printout t "Welcome to Student Budget Recommendor System" crlf)
 	(printout t "What is your constraint on Cost vs Convenience?" crlf)
-	(printout t "1. Save money and have only necessary facilities" crlf "2. Spend conveniently for comfort" crlf) 
+	(printout t "1. Save money and have only necessary facilities" crlf "2. Spend conveniently for comfort" crlf "(1/2)" crlf) 
 	(assert (con-factor
 		(ask-question "Your Choice: " 1 2))) 
 )
@@ -570,7 +570,7 @@
 (defrule 4-nus
 	(cluster4)
 =>
-	(printout t "What type of atmosphere do you want in the campus accomodation?" crlf "1. Lively place, many student activities" crlf "2. Calm place, many in-house facilities" crlf)
+	(printout t "What type of atmosphere do you want in the campus accomodation?" crlf "1. Lively place, many student activities" crlf "2. Calm place, many in-house facilities" crlf "(1/2)" crlf)
 	(assert (nus (ask-question "Your Choice: " 1 2)))
 )
 (defrule 4-nus-utown
@@ -744,7 +744,7 @@
 (defrule food-pref
 	(housing-done)
 =>
-	(printout t "What is your food preference?" crlf "1. Vegetarian" crlf "2. Non Vegetarian" crlf) 
+	(printout t "What is your food preference?" crlf "1. Vegetarian" crlf "2. Non Vegetarian" crlf "(1/2)" crlf) 
 	(assert (food-pref (ask-question "Your Choice: " 1 2)))
 )
 (defrule food-type
@@ -762,7 +762,7 @@
 	(housing-type ?housing-type)
 	(not (no-cooking-allowed))
 =>
-	(printout t "How often do you cook?" crlf "1. Always" crlf "2. Sometimes" crlf "3. Never" crlf) 
+	(printout t "How often do you cook?" crlf "1. Always" crlf "2. Sometimes" crlf "3. Never" crlf "(1/2/3)" crlf) 
 	(assert (cook-opt (ask-question "Your Choice: " 1 2 3)))
 ) 
 (defrule cooking-type
@@ -832,7 +832,7 @@
 	(change-travel-pref yes)
 =>
 	(printout t "What is your travel preference to college?" crlf)
-	(printout t "1. Bus/MRT" crlf "2. TAXI" crlf "3.CYCLE" crlf) 
+	(printout t "1. Bus/MRT" crlf "2. TAXI" crlf "3.CYCLE" crlf "(1/2/3)" crlf) 
 	(assert (user-travel-pref (ask-question "Your Choice: " 1 2 3)))     
 )
 (defrule fix-travel-pref-no-change

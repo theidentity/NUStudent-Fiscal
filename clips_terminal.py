@@ -7,25 +7,37 @@ def start():
 	clips_process.stdin.write("clips -f clips/main.CLP\n")
 	return clips_process
 
-def getQuestion(clips_process):
-	question = ""
+def getContent(clips_process):
+	content = ""
 	while True:
 		line = clips_process.stdout.readline()
-		question += line
-		if 'type' in line:
-			print question
-			return question
+		content += line
+		
+		if '(yes/no)' in line or '(1/2)' in line or '(1/2/3)' in line:
+			isQn = True
+			return isQn,content
+		
+		if 'Mobile Expenditure is ' in line:
+			isQn = False
+			return isQn,content
 
 def giveAnswer(clips_process,answer):
 	print answer
 	clips_process.stdin.write(answer+'\n')
 
+def giveSuggestion(clips_process,suggestion):
+	print suggestion
+	clips_process.kill()
 
 def terminal():
 	clips_process = start()
 	while True:
-		question = getQuestion(clips_process)
-		print(question)
-		answer = raw_input("your answer : ")
-		giveAnswer(clips_process,answer)
-
+		isQn,content = getContent(clips_process)
+		if isQn:
+			print(content)
+			answer = raw_input("your answer : ")
+			giveAnswer(clips_process,answer)
+		else:
+			giveSuggestion(clips_process,content)
+			return
+# terminal()
