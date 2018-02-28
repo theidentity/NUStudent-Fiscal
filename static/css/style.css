@@ -26,4 +26,5 @@
 
 .question-box {
     text-align: left;
+    min-height: 300px;
 }
