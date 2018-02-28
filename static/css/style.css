@@ -1,21 +1,29 @@
-
-.amount{
-	color : blue;
-	font-style: bolder;
+.amount {
+    color: blue;
+    font-style: bolder;
 }
 
-.heading{
-	font-style: italic;
-	font-weight: bolder;
-	font-size: 55px;
+.heading {
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 55px;
 }
 
-.amt{
-	font-style: italic;
-	font-weight: bolder;
-	color: red;
+.amt {
+    font-style: italic;
+    font-weight: bolder;
+    color: red;
 }
 
-.hide{
-	 visibility: hidden;
+.hide {
+    visibility: hidden;
+}
+
+.question {
+    min-height: 100px;
+    font-size: large;
+}
+
+.question-box {
+    text-align: left;
 }
