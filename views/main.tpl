@@ -7,11 +7,7 @@
     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript">
-    function preventBack() { window.history.forward(); }
-    setTimeout("preventBack()", 0);
-    window.onunload = function() { null };
-    </script>
+    <script src="/js/noback.js"></script>
 </head>
 
 <body>
@@ -19,7 +15,7 @@
         <h3 class="heading">Pocket-Me</h3>
         <h5>Intelligent Rule Based Budget Recommender System</h5>
     </section>
-    <section class="container bg-light text-primary" style="min-height:300px;">
+    <section class="container bg-light text-primary question-box">
         <form method="post" action="/">
             <input type="submit" name="restart" value="Restart" class="btn btn-info pull-right" />
             <div class="row justify-content-center">
