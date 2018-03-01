@@ -6,6 +6,7 @@ import os,sys
 from bottle import route, run, static_file, template, view
 from bottle import get, post, request
 import clips_terminal
+from parse_output import get_dictionary
 
 @route('/css/<filename>')
 def img_static(filename):
@@ -34,30 +35,31 @@ def hello():
 
 	while True:
 		print "in the loop"
-		try:
-			isQn,content = clips_terminal.getContent(clips_process)
-			if isQn ==True:
-				if 'Are you ready to start?' in content:
-					content = 'Are you ready to start?'
-				
-				if '(Yes/No)' in content:
-					return dict(question=content.replace('(Yes/No)','').replace('Your Choice: ',''), opt1="Yes", opt2="No Preference", opt3=None)
-				elif '(1/2)' in content:
-					return dict(question=content.replace('(1/2)','').replace('Your Choice: ',''), opt1="1", opt2="2", opt3=None)
-				elif '(1/2/3)' in content:
-					return dict(question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="1", opt2="2",opt3="3")
-				elif 'start?' in content:
-					return dict(title='Start?',user = 'Balu',question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="Start", opt2=None,opt3=None)
+		# try:
+		isQn,content = clips_terminal.getContent(clips_process)
+		if isQn ==True:
+			if 'Are you ready to start?' in content:
+				content = 'Are you ready to start?'
 			
-			elif isQn == False:
-				content = content.replace('Your Choice: ','').replace('~EndOfResult!','Please restart to run the test again!!')
-				clips_terminal.giveSuggestion(clips_process,content)
-				clips_process.kill()
-				clips_process = None
-				print 'process killed'
-				return dict(title='We Recommend you to',question=content,opt1=None, opt2=None,opt3=None)		
-		except:
-				return dict(title='Something Went Wrong',question='Something went wrong! Please restart.',user = '',opt1=None, opt2=None,opt3=None)
+			if '(Yes/No)' in content:
+				return dict(question=content.replace('(Yes/No)','').replace('Your Choice: ',''), opt1="Yes", opt2="No Preference", opt3=None)
+			elif '(1/2)' in content:
+				return dict(question=content.replace('(1/2)','').replace('Your Choice: ',''), opt1="1", opt2="2", opt3=None)
+			elif '(1/2/3)' in content:
+				return dict(question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="1", opt2="2",opt3="3")
+			elif 'start?' in content:
+				return dict(title='Start?',user = 'Balu',question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="Start", opt2=None,opt3=None)
+		
+		elif isQn == False:
+			content = content.replace('Your Choice: ','').replace('~EndOfResult!','Please restart to run the test again!!')
+			clips_terminal.giveSuggestion(clips_process,content)
+			clips_process.kill()
+			clips_process = None
+			print 'process killed'
+			return show_expense(content)
+				# return dict(title='We Recommend you to',question=content,opt1=None, opt2=None,opt3=None)		
+		# except:
+				# return dict(title='Something Went Wrong',question='Something went wrong! Please restart.',user = '',opt1=None, opt2=None,opt3=None)
 
 @route('/',method="POST")
 def recFacts():
@@ -74,6 +76,28 @@ def recFacts():
 		elif request.forms.get("opt3"):
 			answer = request.forms.get("opt3")
 		clips_terminal.giveAnswer(clips_process,answer)
+
+	return hello()
+
+
+@route("/expense")
+@view("expense")
+def show_expense(content):
+
+	print(content)
+	my_dict = get_dictionary(content)
+	my_dict['content'] = content
+	print my_dict
+
+	return my_dict
+
+@route('/expense',method="POST")
+def restart_from_expense():
+	global clips_process
+	global answer
+	answer=""
+	if request.forms.get("restart"):
+		clips_process = clips_terminal.restart(clips_process);
 
 	return hello()
 

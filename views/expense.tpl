@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Questions to User</title>
+    <title>Expenses</title>
     <!-- Styles -->
     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -15,22 +15,27 @@
         <h1 class="display-2">Pocket-Me</h1>
         <h5 class="display-4">Intelligent Rule Based Budget Recommender System</h5>
     </section>
-    
+    <section class="container mx-auto">
+        <h6>  {{total}}     </h6>
+        <h6>  {{sharing}}     </h6>
+        <h6>  {{house_type}}     </h6>
+        <h6>  {{location}}     </h6>
+        <h6>  {{monthly_housing}}     </h6>
+        <h6>  {{rent}}     </h6>
+        <h6>  {{pub}}     </h6>
+        <h6>  {{food_type}}     </h6>
+        <h6>  {{cooking_type}}     </h6>
+        <h6>  {{cooking_exp}}     </h6>
+        <h6>  {{mode}}     </h6>
+        <h6>  {{total_travel}}     </h6>
+        <h6>  {{fare_2_nus}}     </h6>
+        <h6>  {{fare_2_others}}     </h6>
+        <h6>  {{misc}}<     </h6>
+    </section>
     <section class="text-primary container mx-auto">
         <form method="post" action="/">
-            <div class="container row bg-light">
-                <div class="col-9">
-                    <div class="question-box text-justify">
-                        <p class="question text-info">{{!question}}</p>
-                    </div>
-                    <div class="answer-box text-justify">
-                        <input type="submit" name="opt1" value="{{opt1}}" class="btn btn-lg btn-info {{" hide " if opt1 is None else " "}}"/>
-                        <input type="submit" name="opt2" value="{{opt2}}" class="btn btn-lg btn-info {{" hide " if opt2 is None else " "}}"/>
-                        <input type="submit" name="opt3" value="{{opt3}}" class="btn btn-lg btn-info {{" hide " if opt3 is None else " "}}"/>
-                    </div>
-                </div>
-            </div>
             <div class="row container mx-auto vertical-space">
+                <div>{{content}}</div>
                 <div class="col-5 mx-auto">
                     <input type="submit" name="restart" value="Restart" class="btn btn-lg bg-warning btn-block" />
                 </div>

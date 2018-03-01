@@ -8,7 +8,7 @@ def get_dictionary(content):
 	table = {}
 	for item in items:
 		line = item.split(':')
-		left = line[0]
+		left = line[0][:-1]
 		right = line[-1]
 		table[left] = str(right)
 	
