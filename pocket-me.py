@@ -86,7 +86,27 @@ def show_expense(content):
 
 	print(content)
 	my_dict = get_dictionary(content)
+	print my_dict
+
+	my_dict = dict(
+		total="1234",     
+		sharing="yes",     
+		house_type="condo",     
+		location="Pasir Panjang",     
+		monthly_housing = "456",     
+		rent ="345",     
+		pub="56",     
+		food_type="nonn veg",     
+		cooking_type = "always",     
+		cooking_exp = "123",     
+		mode="mrt",     
+		total_travel="50",     
+		fare_2_nus="20",     
+		fare_2_others="30",     
+		misc = "35"
+	)
 	my_dict['content'] = content
+
 	print my_dict
 
 	return my_dict
