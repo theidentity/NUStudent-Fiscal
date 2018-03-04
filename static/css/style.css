@@ -1,4 +1,22 @@
-.heading {}
+/*@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+body{
+    font-family: 'Titillium Web', sans-serif!important;
+}
+*/
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('/fonts/TitilliumWeb-Regular.ttf');
+}
+
+
+.body{
+    font-family: 'Titillium Web', sans-serif!important;
+}
+
+.heading{
+    font-family: 'Titillium Web', sans-serif!important;
+}
 
 .hide {
     visibility: hidden;
@@ -10,6 +28,10 @@
     padding-top: 1em;
 }
 
+.question{
+    font-size: xx-large;
+    font-family: 'Titillium Web', sans-serif!important;
+}
 
 .answer-box {
     width: 100%;
@@ -17,10 +39,6 @@
     padding-bottom: 1em;
 }
 
-.question {
-    font-size: larger;
-    font-style: bold;
-}
 
 .vertical-space {
     padding-top: 1em;
@@ -59,3 +77,11 @@
     margin-left: 10%;
 }
 
+.no-margin{
+    margin : -6px;
+    padding: 0px;
+}
+
+.qn-ans-box{
+    padding: 5em;
+}

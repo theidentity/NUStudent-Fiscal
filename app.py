@@ -19,6 +19,9 @@ def img_static(filename):
 def js_static(filename):
 	return static_file(filename, root='./static/js')
 
+@route('/fonts/<filename>')
+def js_static(filename):
+	return static_file(filename, root='./static/fonts')
 
 clips_process = clips_terminal.start()
 

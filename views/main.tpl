@@ -13,23 +13,30 @@
 <body>
     <form method="post" action="/">
         <div class="navbar-fixed-left"></div>
-        <section class="mx-auto text-center bg-info heading-bar">
-            <h2 class="display-2 font-weight-bold text-white">NU$tudent Fiscal</h2>
-            <h6 class="dispaly-4 font-weight-normal text-white">An Intelligent Budget Recommendation System for NUS Students</h6>
+        <section class="mx-auto text-center heading-bar">
+            <div class="heading display-2">
+                <span class="text-danger no-margin">NU$</span>
+                <span class="text-info no-margin">tudent</span>
+                <span class="text-warning">&nbsp;Fiscal</span>
+            </div>
+            <h6 class="font-weight-normal text-muted">An Intelligent Budget Recommendation System for NUS Students</h6>
+            <div class="container">
+                <hr/>
+            </div>
         </section>
-        <div class="row container mx-auto vertical-space"></div>
-        <section class="container mx-auto bg-light">
+        <!-- <div class="row container mx-auto vertical-space"></div> -->
+        <section class="container mx-auto bg-light qn-ans-box">
             <div class="row container">
                 <div class="question-box text-left align-self-start margin-left">
                     <div class="text-justify text-left">
-                        <p class="question text-info">{{!question}}</p>
+                        <p class="font-weight-bold text-info question">{{!question}}</p>
                     </div>
                 </div>
                 <div class="row container">
                     <div class="answer-box text-left align-self-start margin-left">
-                        <input type="submit" name="opt1" value="{{opt1}}" class="btn btn-md btn-info {{" hide " if opt1 is None else " "}}"/>
-                        <input type="submit" name="opt2" value="{{opt2}}" class="btn btn-md btn-info {{" hide " if opt2 is None else " "}}"/>
-                        <input type="submit" name="opt3" value="{{opt3}}" class="btn btn-md btn-info {{" hide " if opt3 is None else " "}}"/>
+                        <input type="submit" name="opt1" value="{{opt1}}" class="btn btn-lg btn-info {{" hide " if opt1 is None else " "}}"/>
+                        <input type="submit" name="opt2" value="{{opt2}}" class="btn btn-lg btn-info {{" hide " if opt2 is None else " "}}"/>
+                        <input type="submit" name="opt3" value="{{opt3}}" class="btn btn-lg btn-info {{" hide " if opt3 is None else " "}}"/>
                     </div>
                 </div>
         </section>
