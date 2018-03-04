@@ -12,9 +12,16 @@
 
 <body>
     <div class="navbar-fixed-left"></div>
-    <section class="mx-auto text-center bg-info heading-bar">
-        <h2 class="display-2 font-weight-bold text-white">NU$tudent Fiscal</h2>
-        <h6 class="dispaly-4 font-weight-normal text-white">An Intelligent Budget Recommendation System for NUS Students</h6>
+    <section class="mx-auto text-center heading-bar">
+        <div class="heading display-2">
+            <span class="text-danger no-margin">NU$</span>
+            <span class="text-info no-margin">tudent</span>
+            <span class="text-warning">&nbsp;Fiscal</span>
+        </div>
+        <h6 class="font-weight-normal text-muted">An Intelligent Budget Recommendation System for NUS Students</h6>
+        <div class="container">
+            <hr/>
+        </div>
     </section>
     <section class="container mx-auto">
         <div class="row mx-auto pad">

@@ -24,7 +24,6 @@
                 <hr/>
             </div>
         </section>
-        <!-- <div class="row container mx-auto vertical-space"></div> -->
         <section class="container mx-auto bg-light qn-ans-box">
             <div class="row container">
                 <div class="question-box text-left align-self-start margin-left">
