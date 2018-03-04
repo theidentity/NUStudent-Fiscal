@@ -1,34 +1,61 @@
-
-.heading {
-    font-style: italic;
-    font-weight: bolder;
-    font-size: 55px;
-}
+.heading {}
 
 .hide {
     visibility: hidden;
 }
 
-.question-box{
+.question-box {
+    width: 100%;
     min-height: 150px;
     padding-top: 1em;
 }
 
 
-.answer-box{
+.answer-box {
+    width: 100%;
+    min-height: 50px;
     padding-bottom: 1em;
 }
 
-.question{
+.question {
     font-size: larger;
     font-style: bold;
-}   
+}
 
-.vertical-space{
+.vertical-space {
     padding-top: 1em;
     margin-top: 2em;
 }
 
-.pad{
+.pad {
     padding: 1em;
 }
+
+.heading-nav {
+    background: #f46524;
+    width: 5px;
+    position: fixed;
+    border-radius: 0;
+    height: 100%;
+}
+
+.heading-bar {
+    padding: 2em;
+}
+
+.card-min-height{
+    min-height:250px;
+}
+
+.card-footer-min-height{
+    min-height:200px;
+}
+
+.inner-pad{
+    padding:7px;
+}
+
+.margin-left{
+    margin-left: 10%;
+}
+
