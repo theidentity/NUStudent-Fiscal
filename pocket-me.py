@@ -6,7 +6,6 @@ import os,sys,json
 from bottle import route, run, static_file, template, view
 from bottle import get, post, request
 import clips_terminal
-from parse_output import get_dictionary
 
 @route('/css/<filename>')
 def img_static(filename):
