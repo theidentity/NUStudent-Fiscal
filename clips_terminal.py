@@ -16,8 +16,6 @@ def restart(clips_process=None):
 	return start()
 
 def getContent(clips_process):
-	# print "getContent"
-	
 	content = ""
 	while True:
 		line = clips_process.stdout.readline()
@@ -63,4 +61,3 @@ def terminal():
 			return
 
 
-# terminal()
