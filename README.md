@@ -1,5 +1,5 @@
-# NU$tudent Fiscal
-## Inteligent Budget Estimation 
+# NU$tudent Fiscal #
+## Inteligent Budget Estimation ##
 ---
 
 NU$tudent Fiscal is a Rule Based systems which estimates the living expenses for foreign students in NUS and provides suggestions to them.
