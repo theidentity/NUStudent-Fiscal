@@ -2,7 +2,7 @@
 
 #!/usr/bin/env python
 
-import os,sys
+import os,sys,json
 from bottle import route, run, static_file, template, view
 from bottle import get, post, request
 import clips_terminal
@@ -42,24 +42,24 @@ def hello():
 				content = 'Are you ready to start?'
 			
 			if '(Yes/No)' in content:
-				return dict(question=content.replace('(Yes/No)','').replace('Your Choice: ',''), opt1="Yes", opt2="No Preference", opt3=None)
+				return dict(question=content.replace('(Yes/No)','').replace('Your Choice: ',''), opt1="Yes", opt2="No", opt3=None)
+			if '(Yes/Nop)' in content:
+				return dict(question=content.replace('(Yes/Nop)','').replace('Your Choice: ',''), opt1="Yes", opt2="No Preference", opt3=None)
 			elif '(1/2)' in content:
 				return dict(question=content.replace('(1/2)','').replace('Your Choice: ',''), opt1="1", opt2="2", opt3=None)
 			elif '(1/2/3)' in content:
 				return dict(question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="1", opt2="2",opt3="3")
 			elif 'start?' in content:
-				return dict(title='Start?',user = 'Balu',question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="Start", opt2=None,opt3=None)
+				return dict(title='Start?',question=content.replace('(1/2/3)','').replace('Your Choice: ',''), opt1="Start", opt2=None,opt3=None)
 		
 		elif isQn == False:
-			content = content.replace('Your Choice: ','').replace('~EndOfResult!','Please restart to run the test again!!')
-			clips_terminal.giveSuggestion(clips_process,content)
-			clips_process.kill()
-			clips_process = None
-			print 'process killed'
-			return show_expense(content)
-				# return dict(title='We Recommend you to',question=content,opt1=None, opt2=None,opt3=None)		
-		# except:
-				# return dict(title='Something Went Wrong',question='Something went wrong! Please restart.',user = '',opt1=None, opt2=None,opt3=None)
+			if "Result#{" in content:
+				content = content.replace('Your Choice: ','').replace('Result#','').replace('<br/>','')
+				print "Result#"+content
+				clips_process.kill()
+				clips_process = None
+				print 'process killed'
+				return show_expense(content)
 
 @route('/',method="POST")
 def recFacts():
@@ -83,33 +83,7 @@ def recFacts():
 @route("/expense")
 @view("expense")
 def show_expense(content):
-
-	print(content)
-	my_dict = get_dictionary(content)
-	print my_dict
-
-	my_dict = dict(
-		total="1234",     
-		sharing="yes",     
-		house_type="condo",     
-		location="Pasir Panjang",     
-		monthly_housing = "456",     
-		rent ="345",     
-		pub="56",     
-		food_type="nonn veg",     
-		cooking_type = "always",     
-		cooking_exp = "123",     
-		mode="mrt",     
-		total_travel="50",     
-		fare_2_nus="20",     
-		fare_2_others="30",     
-		misc = "35"
-	)
-	my_dict['content'] = content
-
-	print my_dict
-
-	return my_dict
+	return json.loads(content)
 
 @route('/expense',method="POST")
 def restart_from_expense():

@@ -23,18 +23,22 @@ def getContent(clips_process):
 		line = clips_process.stdout.readline()
 		content += line.replace('_',' ').replace('/~','<b>').replace('~/','</b>').replace("||||-","<h4>").replace('-||||','</h4>').replace("|||-","<h3>").replace('-|||','</h3>').replace("||-","<h2>").replace('-||','</h2>').replace("|-","<h1>").replace('-|','</h1>').replace('/*','<small>').replace('*/','</small>').replace('^*','<sup>*</sup>') +'<br/>'
 		
-		if '(Yes/No)' in line or '(1/2)' in line or '(1/2/3)' in line or 'start?' in line:
+		if '(Yes/No)' in line or '(Yes/Nop)' in line or '(1/2)' in line or '(1/2/3)' in line or 'start?' in line:
 			isQn = True
 			print "Question : "+content
 			return isQn,content
 		
+		if 'Result#{' in line:
+			isQn = False
+			return isQn,content
+
 		if '~EndOfResult!' in line:
 			print "EndOfResult : "+content
 			isQn = False
 			return isQn,content
 		
 def giveAnswer(clips_process,answer):
-	if answer == 'No Preference':
+	if "No" in answer:
 		answer = 'n'
 	elif answer == 'Start' or answer == 'Yes':
 		answer = 'y'
