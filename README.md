@@ -23,13 +23,13 @@ http://localhost:5000/
 ```
 
 3. Once you have opened the application in the tab, click on the start button to begin
-![Start](https://github.com/theidentity/NUStudent-Fiscal/docs/start.jpg "Click start to begin")
+![Start](docs/start.jpg "Click start to begin")
 
 4. Answer the questions to proceed to your estimations. Do note that the questions are not static. Your previous questions decide what we are going to ask you next.
-![Mid](theidentity.github.com/NUStudent-Fiscal/docs/mid.jpg)
+![Mid](docs/mid.jpg "Click on the buttons to note your preferences")
 
 5. YOu will be given a budget estimate with the breakdown. Click on restart to have another go at it.
-![End](theidentity.github.com/NUStudent-Fiscal/docs/end.jpg)
+![End](docs/end.jpg "Restart using the button only, not the refresh button")
 
 ### Things to note
 
