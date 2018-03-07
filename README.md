@@ -22,6 +22,15 @@ python2 app.py 5678
 http://localhost:5000/
 ```
 
+3. Once you have opened the application in the tab, click on the start button to begin
+![Start](theidentity.github.com/NUStudent-Fiscal/docs/start.jpg)
+
+4. Answer the questions to proceed to your estimations. Do note that the questions are not static. Your previous questions decide what we are going to ask you next.
+![Mid](theidentity.github.com/NUStudent-Fiscal/docs/mid.jpg)
+
+5. YOu will be given a budget estimate with the breakdown. Click on restart to have another go at it.
+![End](theidentity.github.com/NUStudent-Fiscal/docs/end.jpg)
+
 ### Things to note
 
 1. Use the restart button on the program to start again - do not manually refresh or try to go back during the execution of the program
